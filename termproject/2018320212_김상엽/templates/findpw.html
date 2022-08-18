@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>findpw</title>
+</head>
+<body>
+<h1>Find Password</h1>
+<p><form action="/findpw" method="post">
+
+    <label for="id">ID:</label><br>
+    <input id="id" type="text" name="id" value=""><br><br>
+    
+    <label for="hint">당신의 보물 1호는? :</label><br>
+    <input id="hint" type="text" name="hint" value=""><br><br>
+    
+    <input type="hidden" name="send" value="find">
+    <input type="submit" value="find!">
+</form></p>
+
+<p><form action="/return" method="post">
+    <input type="hidden" name="send" value="return">
+    <input type="submit" value="뒤로가기">
+</form>
+</p>
+</body>
+</html>

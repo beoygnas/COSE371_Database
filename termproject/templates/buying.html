@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buy</title>
+</head>
+<body>
+    <h1>Buying Page</h1>
+
+    <p>Your balance : {{balance}}</p>
+    <p>Your rating : {{rating}}</p>
+    <br>
+    <p>Total Price : {{total_price}}</p>
+    <p>Discount Price : {{discount_price}}</p>
+    <p>====================================</p>
+    <p>Final Price : {{final_price}}</p>
+
+    <p><form action="/confirm" method="post">
+        
+        <label for="pw2nd">2차 비밀번호를 입력하세요:</label><br> 
+        <input id="pw2nd" type="text" name="pw2nd" value=""><br><br>
+
+        <input type="hidden" name="id" value={{id}}>
+        <input type="hidden" name="password" value={{password}}>
+        <input type="hidden" name="seller" value={{seller}}> 
+        <input type="hidden" name="total_price" value={{total_price}}> 
+        <input type="hidden" name="final_price" value={{final_price}}>   
+        <input type="hidden" name="code" value={{code}}>
+        <input type="hidden" name="name" value={{name}}>
+        <input type="hidden" name="price" value={{price}}>
+        <input type="hidden" name="stock" value={{stock}}>
+        <input type="hidden" name="seller" value={{seller}}> 
+        <input type="hidden" name="paystock" value={{paystock}}>
+        <input type="submit" name="send" value="confirm">
+    </form></p>
+
+    <p><form action="/buy" method="post">
+        <input type="hidden" name="id" value={{id}}>
+        <input type="hidden" name="password" value={{password}}>
+        <input type="hidden" name="code" value="{{code}}">
+        <input type="hidden" name="name" value="{{name}}">
+        <input type="hidden" name="price" value="{{price}}">
+        <input type="hidden" name="stock" value="{{stock}}">
+        <input type="hidden" name="seller" value="{{seller}}"> 
+        <input type="hidden" name="send" value="open_buy">
+        <input type="submit" value="cancel">
+    </form></p>
+
+</body>

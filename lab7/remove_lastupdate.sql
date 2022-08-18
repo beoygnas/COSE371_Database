@@ -1,0 +1,14 @@
+alter table category drop column last_update;
+alter table inventory drop column last_update;
+alter table customer drop column last_update;
+alter table film_category drop column last_update;
+alter table rental drop column last_update;
+alter table address drop column last_update;
+alter table film drop column last_update;
+alter table staff drop column last_update;
+alter table city drop column last_update;
+alter table language drop column last_update;
+alter table country drop column last_update;
+alter table film_actor drop column last_update;
+alter table actor drop column last_update;
+alter table store drop column last_update;

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buy</title>
+</head>
+<body>
+    <h1>ITEM INFO</h1>
+    <table border="1">
+        <thead>
+            <th>code</th>
+            <th>name</th>
+            <th>price</th>
+            <th>stock</th>
+            <th>seller</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ code }}</td>
+                <td>{{ name }}</td>
+                <td>{{ price }}</td>
+                <td>{{ stock }}</td>
+                <td>{{ seller }}</td>  
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Your balance : {{balance}}</p>
+    <p>Your rating : {{rating}}</p>
+    <p>
+        <form action="/buy" method="post">
+            <label for="paystock">How many? : </label>
+            <input id="paystock" type="int" name="paystock" value=""><br>
+            
+            <input type="hidden" name="id" value={{id}}>
+            <input type="hidden" name="password" value={{password}}>
+            
+            <input type="hidden" name="code" value="{{code}}">
+            <input type="hidden" name="name" value="{{name}}">
+            <input type="hidden" name="price" value="{{price}}">
+            <input type="hidden" name="stock" value="{{stock}}">
+            <input type="hidden" name="seller" value="{{seller}}"> 
+    
+            <input type="hidden" name="balance" value={{balance}}>
+            <input type="hidden" name="rating" value={{rating}}>
+    
+            <input type="submit" name="send" value="buy">
+        </form></p>
+
+    <p><form action="/register" method="post">
+        <input type="hidden" name="id" value={{id}}>
+        <input type="hidden" name="password" value={{password}}>
+        <input type="hidden" name="send" value="login">
+        <input type="submit" value="cancel">
+    </form></p>
+
+</body>

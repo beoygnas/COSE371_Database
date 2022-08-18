@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin_fail</title>
+</head>
+<body>
+<h1>접근 권한이 없습니다!</h1>
+<form action="/register" method="post">
+    <input type="hidden" name="id" value={{id}}>
+    <input type="hidden" name="password" value={{password}}>
+    <input type="hidden" name="send" value="login">
+    <input type="submit" value="뒤로가기">
+</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup_</title>
+</head>
+<body>
+    <h1>Sign up</h1>    
+    <p>2차 비밀번호와 비밀번호 찾기힌트를 설정하세요.</p>
+    <p>
+        <form action="/register" method="post">
+            <label for="pw2nd">PASSWORD:</label><br>
+            <input id="pw2nd" type="text" name="pw2nd" value=""><br><br>
+            
+            <label for="hint">당신의 보물 1호는? :</label><br>
+            <input id="hint" type="text" name="hint" value=""><br><br>
+
+            <input type="hidden" name="id" value={{id}}>
+            <input type="hidden" name="password" value={{password}}>
+            <input type="hidden" name="send" value="sign up2">
+            <input type="submit" value="sign up!"></form>
+    </p>
+    <p>
+        <form action="/return" method="post">
+            <input type="submit" name="send" value="return">
+    </p>
+    
+</body>
+</html>

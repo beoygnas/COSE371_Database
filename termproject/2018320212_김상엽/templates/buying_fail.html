@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buying_fail</title>
+</head>
+<body>
+<h1>Buying Fail...</h1>
+<p>{{reason}}</p>
+<p><form action="/buy" method="post">
+    <input type="hidden" name="id" value={{id}}>
+    <input type="hidden" name="password" value={{password}}>
+    <input type="hidden" name="code" value="{{code}}">
+    <input type="hidden" name="name" value="{{name}}">
+    <input type="hidden" name="price" value="{{price}}">
+    <input type="hidden" name="stock" value="{{stock}}">
+    <input type="hidden" name="seller" value="{{seller}}"> 
+
+    <input type="hidden" name="send" value="open_buy">
+    <input type="submit" value="뒤로가기">
+</form></p>
+</body>
+</html>

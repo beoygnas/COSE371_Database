@@ -1,0 +1,110 @@
+<!-- 여기로 올때는 user, category, buyer, seller를 날려줘야함! -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login_action</title>
+</head>
+
+<body>
+    <h1>Admin function</h1>
+        <form action="/admin" method="post">
+            <input type="hidden" name="id" value={{user[0][0]}}>
+            <input type="hidden" name="password" value={{password}}>
+            <input type="submit" name="send" value="users info">
+            <input type="submit" name="send" value="trades info">
+        </form>
+    
+    <h1> Best Member</h1>
+    <table border="1">
+        <thead>
+            <th>popular category</th>
+            <th>best buyer</th>
+            <th>best seller</th>
+        </thead>
+        <tbody> 
+            {% if category != [] %}
+                <td>{{category[0][0]}}</td>
+            {% endif %}
+
+            {% if buyer != [] %}
+                <td>{{buyer[0][0]}}</td>
+            {% endif %}
+
+            {% if seller != [] %}
+                <td>{{seller[0][0]}}</td>
+            {% endif %}
+        </tbody>
+    </table>
+    
+    <h1>My Page</h1>
+    
+    <table border="1">
+        <thead>
+            <th>current user</th>
+            <th>balance</th>
+            <th>rating</th>
+        </thead>
+        <tbody>
+            <td>{{user[0][0]}}</td>
+            <td>{{user[0][1]}}</td>
+            <td>{{user[0][2]}}</td>
+        </tbody>
+    </table>
+    <p>
+        <form action="/return" method="post">
+            <input type="submit" name="send" value="Logout">
+        </form>
+    </p>
+
+    <h1> items </h1>
+    <table border="1">
+        <thead>
+            <th>code</th>
+            <th>name</th>
+            <th>price</th>
+            <th>stock</th>
+            <th>seller</th>
+            <th>buy</th>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <!-- for문 -->
+            <tr>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+                <td>{{ item[3] }}</td>
+                <td>{{ item[4] }}</td>  
+                <td>
+                    {% if item[4] != user[0][0] %}
+                    <form action="/buy" method="post">
+                        <input type="hidden" name="id" value={{user[0][0]}}>
+                        <input type="hidden" name="password" value={{password}}>
+
+                        <input type="hidden" name="code" value="{{item[0]}}">
+                        <input type="hidden" name="name" value="{{item[1]}}">
+                        <input type="hidden" name="price" value="{{item[2]}}">
+                        <input type="hidden" name="stock" value="{{item[3]}}">
+                        <input type="hidden" name="seller" value="{{item[4]}}"> 
+
+                        <input type="hidden" name="send" value="open_buy">
+                        <input type="submit" value="buy">
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><form action="/add" method="post">
+        <input type="hidden" name="id" value={{user[0][0]}}>
+        <input type="hidden" name="password" value={{password}}>
+        <input type="hidden" name="send" value="open_add">
+        <input type="submit" value="add">
+    </form></p>
+
+    
+</body>
+</html>
